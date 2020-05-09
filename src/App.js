@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-04-11 21:43:44
- * @LastEditTime: 2020-05-09 10:16:17
+ * @LastEditTime: 2020-05-09 10:29:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /hello-redux-review/src/App.js
@@ -19,13 +19,14 @@ class App extends Component {
   }
   
   render() {
+    const { increment, decrement } = this.props
     return (
       <div className="container">
         <h1 className="jumbotron-heading text-center">{this.props.counter}</h1>
         <h1 className="jumbotron-heading text-center">{this.props.user}</h1>
         <p className="text-center">
-          <button className="btn btn-primary mr-2">Increase</button>
-          <button className="btn btn-danger my-2">Decrease</button>
+          <button onClick={() => increment('love')} className="btn btn-primary mr-2">Increase</button>
+          <button onClick={() => decrement('jld')} className="btn btn-danger my-2">Decrease</button>
         </p>
       </div>
     );
@@ -40,4 +41,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    increment: (name) => {dispatch(increment(name))},
+    decrement: (name) => {dispatch(decrement(name))}
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

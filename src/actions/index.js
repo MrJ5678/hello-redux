@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-05-09 10:08:06
- * @LastEditTime: 2020-05-09 10:12:23
+ * @LastEditTime: 2020-05-09 10:23:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /hello-redux-review/src/actions/index.js
@@ -15,8 +15,9 @@ export const increment = (id) => {
   }
 }
 
-export const decrement = () => {
+export const decrement = (id) => {
   return {
-    type: DECREMENT
+    type: DECREMENT,
+    id
   }
 }
