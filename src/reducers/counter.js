@@ -1,16 +1,18 @@
 /*
  * @Author: your name
  * @Date: 2020-05-08 09:37:29
- * @LastEditTime: 2020-05-08 16:20:19
+ * @LastEditTime: 2020-05-09 10:02:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /hello-redux-review/src/reducers/counter.js
  */
 const counter = (state = 1, action = {}) => {
   switch(action.type) {
-    case 'INCREASE':
+    case 'INCREMENT':
+      console.log(action.name)
       return state + 1
-    case 'DECREASE':
+    case 'DECREMENT':
+      console.log(action.name)
       return state - 1
     default: return state;
   }
