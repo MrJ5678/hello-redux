@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-04-11 21:43:44
- * @LastEditTime: 2020-05-08 16:45:47
+ * @LastEditTime: 2020-05-09 10:16:17
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /hello-redux-review/src/App.js
@@ -9,6 +9,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { increment, decrement } from './actions'
 import './App.css';
 
 class App extends Component {
