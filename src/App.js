@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-04-11 21:43:44
- * @LastEditTime: 2020-05-09 16:31:08
+ * @LastEditTime: 2020-05-09 16:42:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /hello-redux-review/src/App.js
@@ -36,7 +36,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
+  // console.log(state)
   return {
     counter: state.counter,
     user: state.user
