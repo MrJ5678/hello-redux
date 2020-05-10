@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-04-11 21:43:44
- * @LastEditTime: 2020-05-09 16:47:11
+ * @LastEditTime: 2020-05-10 08:19:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /hello-redux-review/src/index.js
@@ -12,23 +12,9 @@ import App from './App';
 import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './reducers'
 import { Provider } from 'react-redux'
+import logger from 'redux-logger'
 
-const logger = store => next => action => {
-  console.log('dispatching', action.type)
-  let result = next(action)
-  console.log('next state', store.getState())
-  return result
-}
-
-const error = store => next => action => {
-  try {
-    next(action)
-  } catch (error) {
-    console.log('reducer执行出错:' + error)
-  }
-}
-
-const store = createStore(rootReducer, {}, applyMiddleware(logger, error))
+const store = createStore(rootReducer, {}, applyMiddleware(logger))
 
 ReactDOM.render(
   <Provider store={ store }>

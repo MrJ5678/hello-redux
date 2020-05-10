@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-04-11 21:43:44
- * @LastEditTime: 2020-05-09 16:42:04
+ * @LastEditTime: 2020-05-10 08:21:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /hello-redux-review/src/App.js
@@ -27,8 +27,8 @@ class App extends Component {
         <h1 className="jumbotron-heading text-center">{this.props.counter}</h1>
         <h1 className="jumbotron-heading text-center">{this.props.user}</h1>
         <p className="text-center">
-          <button onClick={() => increment('jld')} className="btn btn-primary mr-2">Increase</button>
-          <button onClick={() => decrement('love')} className="btn btn-danger my-2">Decrease</button>
+          <button onClick={() => increment()} className="btn btn-primary mr-2">Increase</button>
+          <button onClick={() => decrement()} className="btn btn-danger my-2">Decrease</button>
         </p>
       </div>
     );
