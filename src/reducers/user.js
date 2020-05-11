@@ -1,13 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2020-05-08 16:37:16
- * @LastEditTime: 2020-05-11 10:16:07
+ * @LastEditTime: 2020-05-11 11:40:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /hello-redux-review/src/reducers/user.js
  */
-import { FETCH_USER_SUCCESS, FETCH_USER_REQUEST, FETCH_USER_FAILURE } from '../constant'
+// import { FETCH_USER_SUCCESS, FETCH_USER_REQUEST, FETCH_USER_FAILURE } from '../constant'
 
+import { LOAD_USER_PENDING, LOAD_USER_FULFILLED, LOAD_USER_REJECTED } from '../constant'
 const initialState = {
   isFetching: false,
   error: null,
@@ -16,20 +17,21 @@ const initialState = {
 
 const user = (state = initialState, action = {}) => {
   switch(action.type) {
-    case FETCH_USER_REQUEST:
+    case LOAD_USER_PENDING:
       return {
         ...initialState,
         isFetching: true
       }
-    case FETCH_USER_FAILURE:
+    case LOAD_USER_REJECTED:
       return {
         ...initialState,
-        error: action.error
+        error: action.payload.response.data
       }
-    case FETCH_USER_SUCCESS:
+    case LOAD_USER_FULFILLED:
+      console.dir(action)
       return {
         ...initialState,
-        user: action.user
+        user: action.payload.data.results[0]
       }
     default: return state;
   }

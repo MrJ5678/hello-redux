@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-05-09 10:08:06
- * @LastEditTime: 2020-05-11 10:16:31
+ * @LastEditTime: 2020-05-11 11:39:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /hello-redux-review/src/actions/index.js
@@ -10,6 +10,8 @@ import axios from 'axios'
 import { INCREMENT, DECREMENT } from '../constant'
 
 import { FETCH_USER_SUCCESS, FETCH_USER_REQUEST, FETCH_USER_FAILURE } from '../constant'
+
+import { LOAD_USER } from '../constant'
 
 export const increment = () => {
   return {
@@ -24,15 +26,20 @@ export const decrement = () => {
 }
 
 export const get_users = () => {
-  return dispatch => {
-    dispatch(fetch_user_request())
-    axios.get('https://randomuser.me/api/')
-    .then(res => {
-      dispatch(fetch_user(res.data.results[0]))
-    })
-    .catch(error => {
-      dispatch(fetch_user_failure(error.response.data))
-    })
+  // return dispatch => {
+  //   dispatch(fetch_user_request())
+  //   axios.get('https://randomuser.me/api/')
+  //   .then(res => {
+  //     dispatch(fetch_user(res.data.results[0]))
+  //   })
+  //   .catch(error => {
+  //     dispatch(fetch_user_failure(error.response.data))
+  //   })
+  // }
+
+  return {
+    type: LOAD_USER,
+    payload: axios.get('https://randomuser.me/api/')
   }
 }
 
